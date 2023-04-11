@@ -1,0 +1,37 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      # Build Docker image for testing
+      - echo Build client and backend docker images for testing...
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin ${ECR_PATH}
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - WEB_IMAGE_TAG=web_${COMMIT_HASH:=latest}
+      - BACKEND_IMAGE_TAG=backend_${COMMIT_HASH:=latest}
+      - NGINX_IMAGE_TAG=nginx_${COMMIT_HASH:=latest}
+  build:
+    commands:
+      - echo Build started on `date`
+      # Build the Docker images
+      - echo Building the development Docker image...
+      - docker build -t herplan/web:latest  ./frontend
+      - docker build -t herplan/backend:latest ./backend
+      - docker build -t herplan/nginx:latest ./nginx
+      - docker tag herplan/web:latest $REPOSITORY_URI:$WEB_IMAGE_TAG
+      - docker tag herplan/backend:latest $REPOSITORY_URI:$BACKEND_IMAGE_TAG
+      - docker tag herplan/nginx:latest $REPOSITORY_URI:$NGINX_IMAGE_TAG
+      # Log in to the Docker CLI
+  post_build:
+    commands:
+      # Take these images and push them to Docker hub
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_URI:$WEB_IMAGE_TAG
+      - docker push $REPOSITORY_URI:$BACKEND_IMAGE_TAG
+      - docker push $REPOSITORY_URI:$NGINX_IMAGE_TAG
+      - printf '[{"name":"%s","imageUri":"%s"},' $WEBSERVER_CONTAINER $REPOSITORY_URI:$NGINX_IMAGE_TAG >> imagedefinitions.json
+      - printf '{"name":"%s","imageUri":"%s"},' $WEB_CONTAINER $REPOSITORY_URI:$WEB_IMAGE_TAG >> imagedefinitions.json
+      - printf '{"name":"%s","imageUri":"%s"}]	' $BACKENDSERVER_CONTAINER $REPOSITORY_URI:$BACKEND_IMAGE_TAG >> imagedefinitions.json
+      - cat imagedefinitions.json
+artifacts:
+     files:
+      - imagedefinitions.json   

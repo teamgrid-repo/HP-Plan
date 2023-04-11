@@ -1,0 +1,70 @@
+{
+  "name": "nodejs-express-mongodb",
+  "version": "1.0.0",
+  "description": "Boilerplate for Any Node.js Project who wants to use any MongoDB with Mongoose-Express.js",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon --max-http-header-size 15000 --max-old-space-size=2048 server.js",
+    "lint": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "keywords": [
+    "Node.js",
+    "Mongoose",
+    "MongoDB",
+    "NoSQL",
+    "Express",
+    "SocketIO",
+    "Socket-Clustering",
+    "ES-Lint",
+    "Authentication",
+    "Authorization"
+  ],
+  "author": "Franklin P. Thaker",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.23.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-yaml": "^0.4.2"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^6.0.1-beta",
+    "@vonage/server-sdk": "^2.10.10",
+    "aws-sdk": "^2.1058.0",
+    "chalk": "^4.1.1",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^9.0.2",
+    "express": "^4.17.1",
+    "express-rate-limit": "^5.2.6",
+    "firebase-admin": "^10.0.2",
+    "glob": "^7.2.0",
+    "husky": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mime": "^3.0.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.11",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "nodemailer": "^6.7.0",
+    "path": "^0.12.7",
+    "randomatic": "^3.1.1",
+    "request": "^2.88.2",
+    "simple-crypto-js": "^3.0.0",
+    "socket.io": "^4.1.1",
+    "socket.io-redis": "^6.1.1",
+    "uuid": "^8.3.2",
+    "validate-phone-number-node-js": "^0.0.1",
+    "xlsx": "^0.18.2"
+  }
+}

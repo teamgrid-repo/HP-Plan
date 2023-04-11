@@ -1,0 +1,88 @@
+{
+  "name": "plan-her",
+  "version": "0.1.0",
+  "homepage": "https://directory.herplan.org/",
+  "private": true,
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^35.1.0",
+    "@ckeditor/ckeditor5-react": "^5.0.2",
+    "@devexpress/dx-react-chart": "^2.7.6",
+    "@devexpress/dx-react-chart-material-ui": "^2.7.6",
+    "@devexpress/dx-react-core": "^2.7.6",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.2.4",
+    "@mui/lab": "^5.0.0-alpha.55",
+    "@mui/material": "^5.1.0",
+    "@mui/styles": "^5.1.0",
+    "@mui/x-data-grid": "^5.5.1",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@ungap/structured-clone": "^0.3.4",
+    "axios": "^0.24.0",
+    "chart.js": "^3.6.0",
+    "ckeditor4-react": "^4.0.0",
+    "crypto-js": "^4.1.1",
+    "date-fns": "^2.26.0",
+    "dompurify": "^2.4.0",
+    "faker": "^5.5.3",
+    "firebase": "^9.6.4",
+    "lodash": "^4.17.21",
+    "lodash.debounce": "^4.0.8",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "minisearch": "^5.0.0-beta1",
+    "moment": "^2.29.1",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.2",
+    "react-chartjs-2": "^4.0.0",
+    "react-cookie-consent": "^8.0.1",
+    "react-copy-to-clipboard": "^5.0.4",
+    "react-date-picker": "^8.3.6",
+    "react-dom": "^17.0.2",
+    "react-error-boundary": "^3.1.4",
+    "react-facebook-login": "^4.1.1",
+    "react-google-autocomplete": "^2.6.1",
+    "react-google-login": "^5.2.2",
+    "react-google-maps": "^9.4.5",
+    "react-input-mask": "^2.0.4",
+    "react-places-autocomplete": "^7.3.0",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.1",
+    "react-scripts": "^5.0.0",
+    "react-select": "^5.2.1",
+    "react-spinners": "^0.11.0",
+    "react-toastify": "^8.1.0",
+    "redux": "^4.1.2",
+    "redux-thunk": "^2.4.0",
+    "simple-react-validator": "^1.6.1",
+    "socket.io-client": "^4.4.1",
+    "underscore": "^1.13.2",
+    "usa-states": "0.0.5",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
